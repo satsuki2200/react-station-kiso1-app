@@ -22,15 +22,16 @@ const NewThread = () => {
             }
         );
 
-        if (response.ok) {
-            console.log("success");
-            return response.json();
-        } else if (response.status === 400) {
-            console.log("400");
+        if (!response.ok) {
+            console.log("error");
             console.log(response);
+            return response.json();
+        } else {
+            console.log("success");
             return response.json();
         }
     };
+
     return (
         <>
             <Header />
